@@ -3,14 +3,10 @@ ADD . /go/src/prometheus/node_exporter
 WORKDIR /go/src/prometheus/node_exporter 
 RUN make build
 
-ARG ARCH="arm64"
-ARG OS="linux"
-FROM quay.io/prometheus/busybox-${OS}-${ARCH}:glibc
+FROM quay.io/prometheus/busybox-arm64-linux:glibc
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
 
-ARG ARCH="arm64"
-ARG OS="linux"
-COPY --from=build-env /go/src/prometheus/node_exporter/.build/${OS}-${ARCH}/node_exporter /bin/node_exporter
+COPY --from=build-env /go/src/prometheus/node_exporter/.build/arm64-linux/node_exporter /bin/node_exporter
 
 EXPOSE      9100
 USER        nobody
