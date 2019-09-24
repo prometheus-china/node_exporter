@@ -1,7 +1,7 @@
 FROM reg.docker.alibaba-inc.com/cos/golang:1.12.9-arm64 AS build-env
 ADD . /go/src/prometheus/node_exporter 
 WORKDIR /go/src/prometheus/node_exporter 
-RUN make build
+RUN make
 
 FROM reg.docker.alibaba-inc.com/cos/busybox-glibc-arm64:latest
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
