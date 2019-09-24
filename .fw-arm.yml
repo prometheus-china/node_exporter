@@ -24,7 +24,6 @@ machine:
 # 在scripts中可直接使用系统环境变量
 # {{FW_REPO_VERSION}} 表示git commit信息
 scripts:
-  - make 
   - sudo docker build --pull -t reg.docker.alibaba-inc.com/{{DOCKER_IMAGE_NAMESPACE}}/{{DOCKER_IMAGE_REPO}}-{{ARCH}}:{{VERSION}}-{{FW_REPO_VERSION}} -f {{DOCKERFILE_PATH}} .
   - sudo docker push reg.docker.alibaba-inc.com/{{DOCKER_IMAGE_NAMESPACE}}/{{DOCKER_IMAGE_REPO}}-{{ARCH}}:{{VERSION}}-{{FW_REPO_VERSION}}
 
