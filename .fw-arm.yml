@@ -2,7 +2,7 @@ version: 1.0
 name: node_exporter_arm64
 
 variables:
-  DOCKERFILE_PATH: Dockerfile
+  DOCKERFILE_PATH: Dockerfile.arm
   DOCKER_IMAGE_NAMESPACE: cos
   DOCKER_IMAGE_REPO: node_exporter
   ARCH: 'arm64'
