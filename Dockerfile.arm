@@ -3,7 +3,7 @@ ADD . /go/src/prometheus/node_exporter
 WORKDIR /go/src/prometheus/node_exporter 
 RUN make build
 
-FROM quay.io/prometheus/busybox-arm64-linux:glibc
+FROM busybox:e85c279b86c6dc690629fdec20c93fbb86a95e3d0e94c6e957517797f7bce08e
 LABEL maintainer="The Prometheus Authors <prometheus-developers@googlegroups.com>"
 
 COPY --from=build-env /go/src/prometheus/node_exporter/.build/arm64-linux/node_exporter /bin/node_exporter
